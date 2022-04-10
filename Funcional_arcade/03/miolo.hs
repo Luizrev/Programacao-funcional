@@ -1,0 +1,1 @@
+interior x = drop 1 $ reverse( (drop 1 (reverse x)))
