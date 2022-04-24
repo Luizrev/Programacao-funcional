@@ -1,0 +1,1 @@
+maioresQue x y = filter (>x) y
