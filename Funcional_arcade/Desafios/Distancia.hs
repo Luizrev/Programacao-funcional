@@ -15,7 +15,10 @@ getHoles xs = [buraco | (i, buraco) <- zip xs [0..], i == '.']
 
 fit (xs, lim) index valor = not . exists (dig2char valor) $ neib xs index lim
 
-fitValues xs lim index = [v | v <- [0..lim], fit (xs, lim) index v]
+fitValues xs lim index = [valor | valor <- [0..lim], fit (xs, lim) index valor]
 
+solve (xs, lim) holes hindex
+    |null (fitValues xs lim (holes !! hindex)) = Nothing
+    |hindex == (length holes) = Just xs
 
-
+mainSolver xs lim = fromJust (solve (xs, lim) (getHoles xs) 0)
