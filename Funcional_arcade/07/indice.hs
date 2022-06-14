@@ -1,0 +1,1 @@
+indices x xs =[i | (y,i) <- zip xs [0..(length xs - 1)], x == y]
