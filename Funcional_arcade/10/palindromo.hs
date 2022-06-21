@@ -1,0 +1,1 @@
+isPalind xs = (reverse xs) == xs
