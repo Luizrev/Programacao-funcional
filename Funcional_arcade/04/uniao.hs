@@ -1,0 +1,1 @@
+uniao xs ys = ys ++ [x | x <- xs, not(elem x ys)]
