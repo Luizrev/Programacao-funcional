@@ -1,0 +1,1 @@
+concM f xs = foldl (++) [] (map f xs)
