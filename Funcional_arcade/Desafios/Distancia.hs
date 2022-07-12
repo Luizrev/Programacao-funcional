@@ -20,5 +20,10 @@ fitValues xs lim index = [valor | valor <- [0..lim], fit (xs, lim) index valor]
 solve (xs, lim) holes hindex
     |null (fitValues xs lim (holes !! hindex)) = Nothing
     |hindex == (length holes) = Just xs
+    |otherwise = if null [Just ans | (Just ans) <- branches] then Nothing else head [Just ans | (Just ans) <- branches]
+    where 
+        branches = [solve (set xs (holes !! hindex) (dig2char v), lim) holes (hindex + 1) | v <- fvalores]
+        fvalores = fitValues xs lim (holes !! hindex)
+
 
 mainSolver xs lim = fromJust (solve (xs, lim) (getHoles xs) 0)

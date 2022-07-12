@@ -1,0 +1,1 @@
+expoentes num n = length . tail . takeWhile (\(x,y) -> x /= 0 && y == 0) $ iterate (\(x,y) -> divMod x n) (num,0)
